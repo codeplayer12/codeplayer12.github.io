@@ -1,0 +1,22 @@
+---
+layout: default
+title: Tags
+permalink: /tags/
+---
+<h1 class="page-title"><span class="cmd">#</span> tags</h1>
+
+{% assign tags = site.tags | sort %}
+<p class="tag-cloud">
+  {% for t in tags %}<a class="tag" href="#{{ t[0] | slugify }}">{{ t[0] }} <span class="count">{{ t[1].size }}</span></a>{% endfor %}
+</p>
+
+{% for t in tags %}
+<section class="tag-group" id="{{ t[0] | slugify }}">
+  <h2>#{{ t[0] }}</h2>
+  <ul class="archive">
+    {% for post in t[1] %}
+    <li><time>{{ post.date | date: '%Y-%m-%d' }}</time><a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>
+    {% endfor %}
+  </ul>
+</section>
+{% endfor %}

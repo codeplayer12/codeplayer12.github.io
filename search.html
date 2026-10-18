@@ -1,0 +1,13 @@
+---
+layout: default
+title: Search
+permalink: /search/
+---
+<h1 class="page-title"><span class="cmd">grep -ri</span> search</h1>
+<label class="search-box">
+  <span class="prompt">$ grep -ri</span>
+  <input id="q" type="search" placeholder="nmap, splunk, active directory…" autocomplete="off" autofocus aria-label="Search posts">
+</label>
+<p id="search-status" class="dim" aria-live="polite"></p>
+<ul id="results" class="post-list"></ul>
+<script>window.SEARCH_INDEX = "{{ '/search.json' | relative_url }}";</script>

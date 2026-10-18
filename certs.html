@@ -1,0 +1,26 @@
+---
+layout: default
+title: Certifications
+permalink: /certs/
+description: Certifications earned and in progress.
+---
+<h1 class="page-title"><span class="cmd">cat</span> certs</h1>
+<p class="dim">Edit <code>_data/certs.yml</code> to update this page.</p>
+
+{% assign groups = "earned,in-progress,planned" | split: "," %}
+{% for g in groups %}
+  {% assign list = site.data.certs | where: "status", g %}
+  {% if list.size > 0 %}
+  <h2 class="year">{% if g == "earned" %}Earned{% elsif g == "in-progress" %}In progress{% else %}Planned{% endif %} <span class="count">{{ list.size }}</span></h2>
+  <div class="cert-grid">
+    {% for c in list %}
+    <div class="cert cert-{{ g }}">
+      <span class="badge">{{ g }}</span>
+      <h3>{{ c.name }}</h3>
+      <p class="dim">{{ c.issuer }}</p>
+      {% if c.verify and c.verify != "" %}<a href="{{ c.verify }}" rel="noopener">verify →</a>{% endif %}
+    </div>
+    {% endfor %}
+  </div>
+  {% endif %}
+{% endfor %}

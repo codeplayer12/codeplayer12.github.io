@@ -1,0 +1,28 @@
+---
+layout: default
+---
+{% assign words = content | number_of_words %}
+{% assign mins = words | divided_by: 200 | plus: 1 %}
+<article class="post">
+  <header class="post-head">
+    <p class="meta">
+      <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: '%Y-%m-%d' }}</time>
+      <span class="dot">·</span> {{ mins }} min read
+      {% if page.category %}<span class="dot">·</span> <span class="cat">{{ page.category }}</span>{% endif %}
+    </p>
+    <h1>{{ page.title }}</h1>
+    {% if page.summary %}<p class="lede">{{ page.summary }}</p>{% endif %}
+    {% if page.tags.size > 0 %}
+    <p class="tags">{% for t in page.tags %}<a class="tag" href="{{ '/tags/' | relative_url }}#{{ t | slugify }}">{{ t }}</a>{% endfor %}</p>
+    {% endif %}
+  </header>
+
+  <div class="prose">
+    {{ content }}
+  </div>
+
+  <nav class="pager" aria-label="More posts">
+    {% if page.previous %}<a href="{{ page.previous.url | relative_url }}"><small>← older</small>{{ page.previous.title }}</a>{% else %}<span></span>{% endif %}
+    {% if page.next %}<a class="next" href="{{ page.next.url | relative_url }}"><small>newer →</small>{{ page.next.title }}</a>{% endif %}
+  </nav>
+</article>

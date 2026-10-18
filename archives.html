@@ -1,0 +1,17 @@
+---
+layout: default
+title: Archives
+permalink: /archives/
+---
+<h1 class="page-title"><span class="cmd">ls -l</span> archives</h1>
+<p class="dim">{{ site.posts.size }} posts</p>
+
+{% assign by_year = site.posts | group_by_exp: "p", "p.date | date: '%Y'" %}
+{% for year in by_year %}
+<h2 class="year">{{ year.name }} <span class="count">{{ year.items.size }}</span></h2>
+<ul class="archive">
+  {% for post in year.items %}
+  <li><time>{{ post.date | date: '%m-%d' }}</time><a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>
+  {% endfor %}
+</ul>
+{% endfor %}

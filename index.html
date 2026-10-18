@@ -1,0 +1,30 @@
+---
+layout: default
+title: Home
+---
+<section class="hero">
+  <p class="term"><span class="prompt">{{ site.github_username }}@log:~$</span> cat README</p>
+  <h1>{{ site.title }}<span class="cursor">_</span></h1>
+  <p class="lede">{{ site.description }}</p>
+</section>
+
+{% assign doing = site.data.certs | where: "status", "in-progress" %}
+{% assign done = site.data.certs | where: "status", "earned" %}
+<section class="status">
+  <div class="status-card">
+    <h2><span class="cmd">ps</span> currently studying</h2>
+    <ul>{% for c in doing %}<li><span class="pulse"></span>{{ c.name }}</li>{% endfor %}</ul>
+  </div>
+  <div class="status-card">
+    <h2><span class="cmd">ls</span> certified <span class="count">{{ done.size }}</span></h2>
+    <ul class="inline">{% for c in done %}<li>{{ c.short | default: c.name }}</li>{% endfor %}</ul>
+    <a class="more" href="{{ '/certs/' | relative_url }}">full list →</a>
+  </div>
+</section>
+
+<section>
+  <h2 class="section-title">Latest notes</h2>
+  {% assign latest = site.posts | slice: 0, 10 %}
+  {% include post-list.html posts=latest %}
+  {% if site.posts.size > 10 %}<a class="more" href="{{ '/archives/' | relative_url }}">all {{ site.posts.size }} posts →</a>{% endif %}
+</section>

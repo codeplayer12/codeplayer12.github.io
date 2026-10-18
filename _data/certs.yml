@@ -1,0 +1,51 @@
+# status: earned | in-progress | planned
+# `short` is the label used on the home page.
+# Add a credly/verify link in `verify:` when you have one. Leave blank to hide the link.
+
+- name: CompTIA Security+
+  short: Security+
+  issuer: CompTIA
+  status: earned
+  verify: ""
+
+- name: CompTIA Linux+
+  short: Linux+
+  issuer: CompTIA
+  status: earned
+  verify: ""
+
+- name: Blue Team Level 1 (BTL1)
+  short: BTL1
+  issuer: Security Blue Team
+  status: earned
+  verify: ""
+
+- name: eLearnSecurity Junior Penetration Tester (eJPT)
+  short: eJPT
+  issuer: INE
+  status: earned
+  verify: ""
+
+- name: INE Cloud Associate
+  short: Cloud Associate
+  issuer: INE
+  status: earned
+  verify: ""
+
+- name: Certified Penetration Testing Specialist (CPTS)
+  short: CPTS
+  issuer: Hack The Box
+  status: in-progress
+  verify: ""
+
+- name: Blue Team Level 2 (BTL2)
+  short: BTL2
+  issuer: Security Blue Team
+  status: in-progress
+  verify: ""
+
+- name: OffSec Certified Professional (OSCP)
+  short: OSCP
+  issuer: OffSec
+  status: in-progress
+  verify: ""

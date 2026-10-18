@@ -1,0 +1,13 @@
+{% comment %} usage: include post-list.html posts=site.posts {% endcomment %}
+<ul class="post-list">
+  {% for post in include.posts %}
+  <li>
+    <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%Y-%m-%d' }}</time>
+    <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+    <p>{% if post.summary %}{{ post.summary }}{% else %}{{ post.excerpt | strip_html | truncatewords: 32 }}{% endif %}</p>
+    {% if post.tags.size > 0 %}
+    <p class="tags">{% for t in post.tags %}<a class="tag" href="{{ '/tags/' | relative_url }}#{{ t | slugify }}">{{ t }}</a>{% endfor %}</p>
+    {% endif %}
+  </li>
+  {% endfor %}
+</ul>

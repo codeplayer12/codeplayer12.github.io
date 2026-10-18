@@ -1,0 +1,26 @@
+{% assign p = page.url %}
+<aside id="sidebar" class="sidebar">
+  <a class="brand" href="{{ '/' | relative_url }}">
+    <span class="avatar" aria-hidden="true">N</span>
+    <span>
+      <strong>{{ site.title }}</strong>
+      <small>{{ site.tagline }}</small>
+    </span>
+  </a>
+
+  <nav class="nav" aria-label="Main">
+    <a href="{{ '/' | relative_url }}" {% if p == '/' %}class="active"{% endif %}><span class="cmd">~/</span>home</a>
+    <a href="{{ '/archives/' | relative_url }}" {% if p == '/archives/' %}class="active"{% endif %}><span class="cmd">ls</span>archives</a>
+    <a href="{{ '/tags/' | relative_url }}" {% if p == '/tags/' %}class="active"{% endif %}><span class="cmd">#</span>tags</a>
+    <a href="{{ '/certs/' | relative_url }}" {% if p == '/certs/' %}class="active"{% endif %}><span class="cmd">cat</span>certs</a>
+    <a href="{{ '/search/' | relative_url }}" {% if p == '/search/' %}class="active"{% endif %}><span class="cmd">grep</span>search</a>
+    <a href="{{ '/about/' | relative_url }}" {% if p == '/about/' %}class="active"{% endif %}><span class="cmd">whoami</span>about</a>
+    <a href="{{ '/rss.xml' | relative_url }}"><span class="cmd">rss</span>feed</a>
+  </nav>
+
+  <div class="social">
+    <a href="https://github.com/{{ site.github_username }}" rel="me noopener">github</a>
+    {% if site.linkedin_username != "" %}<a href="https://www.linkedin.com/in/{{ site.linkedin_username }}" rel="me noopener">linkedin</a>{% endif %}
+    {% if site.email != "" %}<a href="mailto:{{ site.email }}">email</a>{% endif %}
+  </div>
+</aside>

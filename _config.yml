@@ -1,0 +1,46 @@
+# ─────────────────────────────────────────────
+#  Site settings — edit these, then push.
+# ─────────────────────────────────────────────
+title: "noble.log"                      # blog name shown in the sidebar
+tagline: "Field notes from a live cybersecurity learning journey."
+description: "SOC, pentesting and blue-team notes, homelab builds, and certification progress — written as I learn."
+author: "Noble"
+github_username: codeplayer12
+linkedin_username: ""                   # e.g. noble-xyz (leave blank to hide)
+email: ""                               # leave blank to hide
+
+# While the site lives on GitHub Pages:
+url: "https://codeplayer12.github.io"
+# After you connect your Namecheap domain, change to e.g.:
+# url: "https://yourdomain.com"
+baseurl: ""
+
+timezone: Europe/London
+permalink: /article/:title/
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    css_class: highlight
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+feed:
+  path: rss.xml
+
+defaults:
+  - scope: { path: "", type: posts }
+    values: { layout: post }
+  - scope: { path: "" }
+    values: { layout: default }
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
